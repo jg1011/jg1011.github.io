@@ -14,7 +14,7 @@ title: Home
                 <a href="https://www.linkedin.com/in/jacob-green-mathematics/" target="_blank">LinkedIn</a>
             </div>
             <div class="hero-about">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Enjoyer of mathematics, reinforcement learning and data engineering.</p>
             </div>
         </div>
         <img src="{{ '/assets/images/profile_photo.jpg' | relative_url }}" alt="Jacob Green" class="hero-photo">
@@ -31,7 +31,7 @@ title: Home
                     <img src="{{ '/assets/images/clanker-in-hanoi.png' | relative_url }}" alt="Clanker in Hanoi" class="project-image">
                     <div class="project-info">
                         <h3 class="project-title">Clanker in Hanoi</h3>
-                        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A Tower of Hanoi puzzle implementation with interactive gameplay and visual animations.</p>
+                        <p class="project-description">A path to deeper reasoning: The failure of LRMs on the traditional tower of Hanoi puzzle, and reinforcement learning based solution. </p>
                         <div class="project-links">
                             <a href="https://github.com/jg1011/clanker-in-hanoi" target="_blank">GitHub</a>
                         </div>
@@ -47,7 +47,7 @@ title: Home
                     <img src="{{ '/assets/images/fungi-classifier.png' | relative_url }}" alt="Microscopic Fungi Image Classifier" class="project-image">
                     <div class="project-info">
                         <h3 class="project-title">Microscopic Fungi Image Classifier</h3>
-                        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Machine learning model for automated classification of microscopic fungi images using computer vision techniques.</p>
+                        <p class="project-description">Classification of invasive fungi species from microscopic imaging, trained on the DeFungi dataset. Models include classical convolutional neural networks, bayesian classifiers, logistic regression classifiers and the more modern vision transformer. </p>
                         <div class="project-links">
                             <a href="https://github.com/jg1011/DeFungi-Classification" target="_blank">GitHub</a>
                         </div>
@@ -57,13 +57,13 @@ title: Home
         </details>
 
         <details>
-            <summary>Bridge Crossings Problem</summary>
+            <summary>Bridge Crossing Problem</summary>
             <div class="details-content">
                 <div class="project-card">
                     <img src="{{ '/assets/images/bridge-crossings.png' | relative_url }}" alt="Bridge Crossings Problem" class="project-image">
                     <div class="project-info">
                         <h3 class="project-title">Bridge Crossings Problem</h3>
-                        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A computational solution to the classic bridge crossing puzzle with optimization algorithms.</p>
+                        <p class="project-description">Algorithmic and RL-based solutions to various generalisations of the famous bridge crossing problem</p>
                         <div class="project-links">
                             <a href="https://github.com/jg1011/bridge-crossing-problem" target="_blank">GitHub</a>
                         </div>
@@ -84,7 +84,7 @@ title: Home
                     <img src="{{ '/assets/images/pydynsys.gif' | relative_url }}" alt="PyDynSys" class="library-image">
                     <div class="library-info">
                         <h3 class="library-title">PyDynSys</h3>
-                        <p class="library-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A comprehensive Python library for dynamical systems analysis, featuring numerical methods for solving differential equations and visualizing phase portraits.</p>
+                        <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
                         <div class="library-links">
                             <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
                             <a href="#" target="_blank">Documentation</a>
