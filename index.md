@@ -14,7 +14,7 @@ title: Home
                 <a href="https://www.linkedin.com/in/jacob-green-mathematics/" target="_blank">LinkedIn</a>
             </div>
             <div class="hero-about">
-                <p>Enjoyer of mathematics, reinforcement learning and data engineering.</p>
+                <p>Mathematician and software developer passionate about probability theory, particularly its application to non-constructive combinatorics and percolation theory, chaotic dynamical systems, and building high-performance data-driven systems, usually in the financial sector. I specialize in Rust/Python development, and I enjoy training reinforcement learning models to solve puzzles.</p>
             </div>
         </div>
         <img src="{{ '/assets/images/profile_photo.jpg' | relative_url }}" alt="Jacob Green" class="hero-photo">
@@ -83,7 +83,7 @@ title: Home
                 <div class="library-card">
                     <img src="{{ '/assets/images/pydynsys.gif' | relative_url }}" alt="PyDynSys" class="library-image">
                     <div class="library-info">
-                        <h3 class="library-title">PyDynSys</h3>
+                        <h3 class="library-title">PyDynSys (currently in alpha)</h3>
                         <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
                         <div class="library-links">
                             <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
