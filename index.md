@@ -41,22 +41,6 @@ title: Home
         </details>
 
         <details>
-            <summary>Microscopic Fungi Image Classifier</summary>
-            <div class="details-content">
-                <div class="project-card">
-                    <img src="{{ '/assets/images/fungi-classifier.png' | relative_url }}" alt="Microscopic Fungi Image Classifier" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">Microscopic Fungi Image Classifier</h3>
-                        <p class="project-description">Classification of invasive fungi species from microscopic imaging, trained on the DeFungi dataset. Models include classical convolutional neural networks, bayesian classifiers, logistic regression classifiers and the more modern vision transformer. </p>
-                        <div class="project-links">
-                            <a href="https://github.com/jg1011/DeFungi-Classification" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </details>
-
-        <details>
             <summary>Bridge Crossing Problem</summary>
             <div class="details-content">
                 <div class="project-card">
@@ -66,6 +50,39 @@ title: Home
                         <p class="project-description">Algorithmic and RL-based solutions to various generalisations of the famous bridge crossing problem</p>
                         <div class="project-links">
                             <a href="https://github.com/jg1011/bridge-crossing-problem" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>British Mathematical Olympiad Solution Compendium</summary>
+            <div class="details-content">
+                <div class="project-card">
+                    <img src="{{ '/assets/images/bmo-solution-compendium.png' | relative_url }}" alt="British Mathematical Olympiad Solution Compendium" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">British Mathematical Olympiad Solution Compendium</h3>
+                        <p class="project-description">An assortment of solutions to British Mathematical Olympiad questions. Worked on this a few years ago and got told I can't continue due to copyright issues. The half-complete solution manual is available here though. Note I skipped geometry questions, primarily as these are boring, but also partially a skill issue.</p>
+                        <div class="project-links">
+                            <a href="{{ '/assets/pdf/bmo-solution-compendium.pdf' | relative_url }}" target="_blank">Download PDF</a>
+                            <a href="https://github.com/jg1011/british-mathematical-olympiad-solutions" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>Microscopic Fungi Image Classifier</summary>
+            <div class="details-content">
+                <div class="project-card">
+                    <img src="{{ '/assets/images/fungi-classifier.png' | relative_url }}" alt="Microscopic Fungi Image Classifier" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Microscopic Fungi Image Classifier</h3>
+                        <p class="project-description">Classification of invasive fungi species from microscopic imaging, trained on the DeFungi dataset. Models include classical convolutional neural networks, bayesian classifiers, logistic regression classifiers and the more modern vision transformer. </p>
+                        <div class="project-links">
+                            <a href="https://github.com/jg1011/DeFungi-Classification" target="_blank">GitHub</a>
                         </div>
                     </div>
                 </div>
