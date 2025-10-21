@@ -23,8 +23,6 @@
 ├── articles/                # Git submodule → external articles repo
 │   ├── standalone/          # Standalone articles
 │   └── series/              # Multi-part article series
-├── tutorials/               # Reminders on how to do things when I inevitably forget
-│   ├── ...
 ├── index.md                 # Contents, as per Jekyll convention
 └── README.md                
 ```
