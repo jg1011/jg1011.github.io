@@ -1,0 +1,82 @@
+# Site settings
+title: Jacob Green
+description: "Mathematician, Software Developer, and Researcher"
+url: "https://jg1011.github.io"
+baseurl: ""
+
+# Author
+author:
+  name: Jacob Green
+  email: jacobgreen1011@gmail.com
+  linkedin: "https://www.linkedin.com/in/jacob-green-mathematics/"
+  github: "jg1011"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+timezone: UTC
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
+  math_engine_opts:
+    preview: true
+    preview_as_code: true
+
+# Collections
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+    directory: articles
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Include files
+include:
+  - articles
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - .git
+  - .gitignore
+  - .devcontainer
+  - .github
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO
+seo:
+  type: "Person"
+  links:
+    - "https://github.com/jg1011"
+    - "https://www.linkedin.com/in/jacob-green-mathematics/"

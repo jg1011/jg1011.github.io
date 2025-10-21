@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<article class="article">
+    <header class="article-header">
+        <h1 class="article-title">{{ page.title }}</h1>
+        {% if page.date %}
+        <time class="article-date" datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        {% endif %}
+        {% if page.series %}
+        <div class="article-series">
+            <span class="series-label">Series:</span>
+            <span class="series-name">{{ page.series }}</span>
+            {% if page.series-part %}
+            <span class="series-part">Part {{ page.series-part }}</span>
+            {% endif %}
+        </div>
+        {% endif %}
+    </header>
+
+    <div class="article-content">
+        {{ content }}
+    </div>
+
+    {% if page.series %}
+    <nav class="article-nav">
+        <div class="nav-prev">
+            {% if page.series-part > 1 %}
+            <a href="{{ page.series-part | minus: 1 | prepend: 'part' | append: '.html' | prepend: page.series | prepend: '/articles/' | relative_url }}">
+                ← Previous Part
+            </a>
+            {% endif %}
+        </div>
+        <div class="nav-next">
+            {% if page.series-part < page.series-total %}
+            <a href="{{ page.series-part | plus: 1 | prepend: 'part' | append: '.html' | prepend: page.series | prepend: '/articles/' | relative_url }}">
+                Next Part →
+            </a>
+            {% endif %}
+        </div>
+    </nav>
+    {% endif %}
+
+    <footer class="article-footer">
+        <a href="{{ '/' | relative_url }}" class="back-home">← Back to Home</a>
+    </footer>
+</article>
