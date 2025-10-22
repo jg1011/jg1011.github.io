@@ -31,7 +31,7 @@ title: Home
                     <img src="{{ '/assets/images/clanker-in-hanoi.png' | relative_url }}" alt="Clanker in Hanoi" class="project-image">
                     <div class="project-info">
                         <h3 class="project-title">Clanker in Hanoi</h3>
-                        <p class="project-description">A path to deeper reasoning: The failure of LRMs on the traditional tower of Hanoi puzzle, and reinforcement learning based solution. </p>
+                        <p class="project-description">A step towards artificial reasoning: Inspired by a <a href="https://arxiv.org/abs/2506.06941" target="_blank">2025 paper out of Apple</a> showcasing the failure of LRMs on standard puzzles with lots of moves (particularly the Tower of Hanoi puzzle with n rings, our chosen experiment), I wondered if modern reinforcement learning could outperform LRMs on such puzzles. This could provide a potential three-pronged approach to AGI: (1) leverage LRM pattern recognition capabilities to design a puzzle-specific learning framework (2) learn functional solution to puzzle via aforementioned learning framework (3) Invoke learnt function to solve, and update LRM weights so that knowledge acquired via RL is cached away. Here we outsource reason, leaving pattern recognition to LRMs, which excel here, and reason to RL, which can perform incredibly well when tailored to specific problems. Note this is likely computationally infeasible with modern compute, but with adequate scaling (e.g. <a href="https://arxiv.org/abs/2301.08028" target="_blank">MetaRL</a> for handling wider problem classes) and a few more iterations of Moore's law it could be viable</p>
                         <div class="project-links">
                             <a href="https://github.com/jg1011/clanker-in-hanoi" target="_blank">GitHub</a>
                         </div>
@@ -65,7 +65,7 @@ title: Home
                         <h3 class="project-title">British Mathematical Olympiad Solution Compendium</h3>
                         <p class="project-description">An assortment of solutions to British Mathematical Olympiad questions. Worked on this a few years ago and got told I can't continue due to copyright issues. The half-complete solution manual is available here though. Note I skipped geometry questions, primarily as these are boring, but also partially a skill issue.</p>
                         <div class="project-links">
-                            <a href="{{ '/assets/pdf/bmo-solution-compendium.pdf' | relative_url }}" target="_blank">Download PDF</a>
+                            <a href="{{ '/assets/pdf/bmo-solutions.pdf' | relative_url }}" target="_blank">Download PDF</a>
                             <a href="https://github.com/jg1011/british-mathematical-olympiad-solutions" target="_blank">GitHub</a>
                         </div>
                     </div>
