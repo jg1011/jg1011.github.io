@@ -112,6 +112,27 @@ title: Home
         </details>
     </section>
 
+    <!-- Miscellaneous Section -->
+    <section id="miscellaneous" class="section">
+        <h2 class="section-title">Miscellaneous</h2>
+        
+        <details>
+            <summary>Masters Thesis</summary>
+            <div class="details-content">
+                <div class="project-card">
+                    <img src="{{ '/assets/images/test-image.png' | relative_url }}" alt="Masters Thesis" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Masters Thesis</h3>
+                        <p class="project-description">Mirroring the work of <a href="https://arxiv.org/abs/2312.10026" target="_blank">Campos, Jenssen, Michelen and Sahasrabudhe</a>, we exhibit the existence of a sphere packing density $\Omega(2^d d \log d)$ in $\mathbb{R}^d$. We build upon their work in three key ways: (1) Providing explicit bounds for large fixed $d$ (2) Generalising arguments by considering packings in dilations of a convex body (3) Providing significant additional pedagogical value. I'll note that this thesis isn't overly relevant anymore, after <a href="https://arxiv.org/abs/2504.05042" target="_blank">Klartag</a> exhibited packings of density $\Omega(2^d d^2)$. Alas, at least I learnt a lot... Work was done to find a Cox-process to investigate the entropy of such packings, along with a stochastic algorithm to generate such packings. This proved quite difficult, and while some lemmas were proven, it was decidedly cut from the final draft. Could make for an interesting PhD thesis, but I haven't given it so much thought lately.</p>
+                        <div class="project-links">
+                            <a href="{{ '/assets/pdfs/thesis.pdf' | relative_url }}" target="_blank">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </section>
+
     <!-- Articles Section -->
     <section id="articles" class="section">
         <h2 class="section-title">Articles</h2>
