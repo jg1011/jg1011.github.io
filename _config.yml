@@ -17,13 +17,6 @@ highlighter: rouge
 permalink: /:categories/:title/
 timezone: UTC
 
-# Kramdown settings
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  math_engine: null
-  hard_wrap: false
-
 # Collections
 collections:
   articles:
@@ -65,7 +58,6 @@ exclude:
   - .gitignore
   - .devcontainer
   - .github
-  - _plugins
 
 # Plugins
 plugins:
