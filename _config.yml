@@ -31,6 +31,9 @@ kramdown:
   enable_coderay: false
   parse_block_html: true
   parse_span_html: true
+  footnotes: true
+  footnote_backlink: "&#8617;"
+  footnote_backlink_inline: true
 
 # Collections
 collections:
