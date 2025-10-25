@@ -1,0 +1,15 @@
+# Ensure that all text files use LF line endings
+* text=auto eol=lf
+
+# Ensure markdown files use LF line endings
+*.md text eol=lf
+
+# Ensure HTML files use LF line endings  
+*.html text eol=lf
+
+# Ensure CSS files use LF line endings
+*.css text eol=lf
+
+# Ensure YAML files use LF line endings
+*.yml text eol=lf
+*.yaml text eol=lf
