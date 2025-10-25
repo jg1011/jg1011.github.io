@@ -23,20 +23,6 @@ kramdown:
   syntax_highlighter: rouge
   math_engine: null
   hard_wrap: false
-  auto_ids: false
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-  parse_block_html: true
-  parse_span_html: true
-  footnotes: true
-  footnote_backlink: "&#8617;"
-  footnote_backlink_inline: true
-  gfm_quirks: paragraph_end
-  remove_block_html_tags: false
-  remove_span_html_tags: false
 
 # Collections
 collections:
