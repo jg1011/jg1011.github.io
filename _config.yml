@@ -12,10 +12,17 @@ author:
   github: "jg1011"
 
 # Build settings
-markdown: GFM
+markdown: kramdown
 highlighter: rouge
 permalink: /:categories/:title/
 timezone: UTC
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: null
+  hard_wrap: false
 
 # Collections
 collections:

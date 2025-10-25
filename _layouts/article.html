@@ -22,7 +22,7 @@ layout: default
     </header>
 
     <div class="article-content tex2jax_process">
-        {{ content }}
+        {{ content | replace: '\(', '$' | replace: '\)', '$' | replace: '\\text', '\text' | replace: '\\\\', '\\' }}
     </div>
 
     {% if page.series %}
