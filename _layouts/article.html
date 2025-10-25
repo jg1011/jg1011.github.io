@@ -21,9 +21,75 @@ layout: default
         {% endif %}
     </header>
 
-    <div class="article-content tex2jax_process">
-        {{ content }}
+    <div class="article-content" id="article-content">
+        <!-- Raw markdown content for SEO and fallback -->
+        <pre style="display: none;" id="raw-markdown">{{ content | escape }}</pre>
+        <div id="rendered-content" style="display: none;"></div>
     </div>
+
+    <!-- Client-side markdown rendering for articles only -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script>
+        // Configure marked for LaTeX support
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            pedantic: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false
+        });
+
+        // Configure KaTeX for LaTeX rendering
+        const renderMath = (text) => {
+            return text
+                .replace(/\$\$(.*?)\$\$/g, (match, equation) => {
+                    try {
+                        return katex.renderToString(equation, { 
+                            displayMode: true,
+                            throwOnError: false
+                        });
+                    } catch (e) {
+                        return match; // Return original if rendering fails
+                    }
+                })
+                .replace(/\$(.*?)\$/g, (match, equation) => {
+                    try {
+                        return katex.renderToString(equation, { 
+                            displayMode: false,
+                            throwOnError: false
+                        });
+                    } catch (e) {
+                        return match; // Return original if rendering fails
+                    }
+                });
+        };
+
+        // Render the markdown when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const rawMarkdown = document.getElementById('raw-markdown').textContent;
+            
+            // Decode HTML entities
+            const decodedMarkdown = rawMarkdown
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&')
+                .replace(/&quot;/g, '"')
+                .replace(/&#39;/g, "'");
+            
+            // Parse markdown
+            const html = marked.parse(decodedMarkdown);
+            
+            // Render LaTeX
+            const withMath = renderMath(html);
+            
+            // Display the rendered content
+            document.getElementById('rendered-content').innerHTML = withMath;
+            document.getElementById('rendered-content').style.display = 'block';
+        });
+    </script>
 
     {% if page.series %}
     <nav class="article-nav">
