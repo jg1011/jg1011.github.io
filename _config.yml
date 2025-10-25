@@ -22,6 +22,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   math_engine: null
+  hard_wrap: false
 
 # Collections
 collections:

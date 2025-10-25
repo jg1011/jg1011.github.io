@@ -20,55 +20,6 @@ title: Home
         <img src="{{ '/assets/images/profile_photo.jpg' | relative_url }}" alt="Jacob Green" class="hero-photo">
     </section>
 
-    <!-- Libraries Section -->
-    <section id="libraries" class="section">
-        <h2 class="section-title">Libraries</h2>
-        
-        <details>
-            <summary>PyDynSys</summary>
-            <div class="details-content">
-                <div class="library-card">
-                    <img src="{{ '/assets/images/pydynsys.gif' | relative_url }}" alt="PyDynSys" class="library-image">
-                    <div class="library-info">
-                        <h3 class="library-title">PyDynSys (currently in alpha)</h3>
-                        <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
-                        <div class="library-links">
-                            <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
-                            <a href="#" target="_blank">Documentation</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </details>
-    </section>
-
-    <!-- Articles Section -->
-    <section id="articles" class="section">
-        <h2 class="section-title">Articles</h2>
-        
-        <h3>Standalone</h3>
-        <details>
-            <summary><a href="{{ '/articles/test/article-1' | relative_url }}">Test Article</a></summary>
-            <div class="details-content">
-                <p>A test article to demonstrate the article functionality with Lorem ipsum content and mathematical examples.</p>
-            </div>
-        </details>
-
-        <h3>Series</h3>
-        <details>
-            <summary><a href="{{ '/articles/rl-tutorials/tut1' | relative_url }}">Miscellaneous Tutorials on Reinforcement Learning</a></summary>
-            <div class="details-content">
-                <p>A collection of tutorials, in <a href="https://arxiv.org/abs/2504.05042" target="_blank">British academic parlance</a> that is, for  topics in reinforcement learning. We go into further mathematical depth than standard texts, such as <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf" target="_blank">Sutton's Introduction to Reinforcement Learning</a>, and as such expect a greater deal of mathematical maturity. I'd approximate this to be at the level of a 2nd-3rd year mathematics undergraduate. I try to write in a more conversational style, both to appease Socrates and to capture that tutorial feeling. I may record some seminars around this content if I find the time.</p> 
-                <div class="series-parts">
-                    <h4>Parts:</h4>
-                    <ul>
-                        <li><a href="{{ '/articles/rl-tutorials/tut1' | relative_url }}">Part 1: What actually is reinforcement learning?</a></li>
-                    </ul>
-                </div>
-            </div>
-        </details>
-    </section>
-
     <!-- Projects Section -->
     <section id="projects" class="section">
         <h2 class="section-title">Projects</h2>
@@ -134,6 +85,55 @@ title: Home
                             <a href="https://github.com/jg1011/DeFungi-Classification" target="_blank">GitHub</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- Libraries Section -->
+    <section id="libraries" class="section">
+        <h2 class="section-title">Libraries</h2>
+        
+        <details>
+            <summary>PyDynSys</summary>
+            <div class="details-content">
+                <div class="library-card">
+                    <img src="{{ '/assets/images/pydynsys.gif' | relative_url }}" alt="PyDynSys" class="library-image">
+                    <div class="library-info">
+                        <h3 class="library-title">PyDynSys (currently in alpha)</h3>
+                        <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
+                        <div class="library-links">
+                            <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="section">
+        <h2 class="section-title">Articles</h2>
+        
+        <h3>Standalone</h3>
+        <details>
+            <summary><a href="{{ '/articles/test/article-1' | relative_url }}">Test Article</a></summary>
+            <div class="details-content">
+                <p>A test article to demonstrate the article functionality with Lorem ipsum content and mathematical examples.</p>
+            </div>
+        </details>
+
+        <h3>Series</h3>
+        <details>
+            <summary><a href="{{ '/articles/rl-tutorials/tut1' | relative_url }}">Miscellaneous Tutorials on Reinforcement Learning</a></summary>
+            <div class="details-content">
+                <p>A collection of tutorials, in <a href="https://arxiv.org/abs/2504.05042" target="_blank">British academic parlance</a> that is, for  topics in reinforcement learning. We go into further mathematical depth than standard texts, such as <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf" target="_blank">Sutton's Introduction to Reinforcement Learning</a>, and as such expect a greater deal of mathematical maturity. I'd approximate this to be at the level of a 2nd-3rd year mathematics undergraduate. I try to write in a more conversational style, both to appease Socrates and to capture that tutorial feeling. I may record some seminars around this content if I find the time.</p> 
+                <div class="series-parts">
+                    <h4>Parts:</h4>
+                    <ul>
+                        <li><a href="{{ '/articles/rl-tutorials/tut1' | relative_url }}">Part 1: What actually is reinforcement learning?</a></li>
+                    </ul>
                 </div>
             </div>
         </details>
