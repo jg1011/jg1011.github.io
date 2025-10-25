@@ -21,12 +21,7 @@ timezone: UTC
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  math_engine: mathjax
-  math_engine_opts:
-    preview: true
-    preview_as_code: false
-  hard_wrap: false
-  auto_ids: true
+  math_engine: null
 
 # Collections
 collections:
