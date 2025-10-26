@@ -50,35 +50,39 @@ layout: default
 </article>
 
 <script type="text/javascript">
-    // Fix LaTeX rendering issues before MathJax processes it
-    (function() {
+    // Fix LaTeX rendering issues - run after DOM loads
+    document.addEventListener('DOMContentLoaded', function() {
         var articleContent = document.querySelector('.article-content');
         if (articleContent) {
             var html = articleContent.innerHTML;
             
-            // First, fix double-escaped backslashes
-            html = html.replace(/\$\$([^$]+)\$\$/g, function(match, content) {
-                return '$$' + content.replace(/\\\\/g, '\\') + '$$';
+            console.log('Before fix:', html.substring(0, 500));
+            
+            // Fix double-escaped backslashes in all LaTeX regions
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(match, content) {
+                return '$$' + content.replace(/\\\\/g, '\\').replace(/\\\\\\\\/g, '\\') + '$$';
             });
-            html = html.replace(/\$([^$]+)\$/g, function(match, content) {
-                return '$' + content.replace(/\\\\/g, '\\') + '$';
+            html = html.replace(/\$([\s\S]*?)\$/g, function(match, content) {
+                return '$' + content.replace(/\\\\/g, '\\').replace(/\\\\\\\\/g, '\\') + '$';
             });
             
-            // Fix underscores in LaTeX (they get converted to <em> tags by Markdown)
-            // Find and fix patterns like <em>text</em> inside math delimiters
+            // Fix underscores: convert <em>text</em> back to _text_ inside math
             html = html.replace(/\$(.+?)\$/g, function(match, content) {
-                // Replace <em>...</em> with underscores, but only in math context
-                content = content.replace(/<em>([^<]+)<\/em>/g, '_{$1}');
+                content = content.replace(/<em>([^<]+)<\/em>/g, '_$1_');
+                content = content.replace(/<\/?(em|strong|b|i)>/g, '');
                 return '$' + content + '$';
             });
             html = html.replace(/\$\$(.+?)\$\$/g, function(match, content) {
-                content = content.replace(/<em>([^<]+)<\/em>/g, '_{$1}');
+                content = content.replace(/<em>([^<]+)<\/em>/g, '_$1_');
+                content = content.replace(/<\/?(em|strong|b|i)>/g, '');
                 return '$$' + content + '$$';
             });
             
+            console.log('After fix:', html.substring(0, 500));
+            
             articleContent.innerHTML = html;
         }
-    })();
+    });
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
