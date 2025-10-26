@@ -56,13 +56,15 @@ layout: default
         if (content) {
             var html = content.innerHTML;
             
-            // Convert <em> tags back to underscores in math regions
+            // Convert <em> tags back to underscores AND unescape backslash-underscores in math regions
             html = html.replace(/\$([^$]*?)\$/g, function(match, math) {
                 math = math.replace(/<em>([^<]+)<\/em>/g, '_$1_');
+                math = math.replace(/\\_/g, '_');  // Unescape \_ to _
                 return '$' + math + '$';
             });
             html = html.replace(/\$\$([^$]*?)\$\$/g, function(match, math) {
                 math = math.replace(/<em>([^<]+)<\/em>/g, '_$1_');
+                math = math.replace(/\\_/g, '_');  // Unescape \_ to _
                 return '$$' + math + '$$';
             });
             
