@@ -49,6 +49,25 @@ layout: default
     </footer>
 </article>
 
+<script type="text/javascript">
+    // Fix escaping issues in LaTeX before MathJax processes
+    (function() {
+        var content = document.querySelector('.article-content');
+        if (content) {
+            var html = content.innerHTML;
+            
+            // Fix double-escaped backslashes and underscores in math regions
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(m, math) {
+                return '$$' + math.replace(/\\\\\\\\/g, '\\').replace(/\\\\/g, '\\') + '$$';
+            });
+            html = html.replace(/\$([\s\S]*?)\$/g, function(m, math) {
+                return '$' + math.replace(/\\\\\\\\/g, '\\').replace(/\\\\/g, '\\').replace(/\\_/g, '_') + '$';
+            });
+            
+            content.innerHTML = html;
+        }
+    })();
+</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -56,5 +75,5 @@ layout: default
         processEscapes: true
       }
     });
-    </script>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
