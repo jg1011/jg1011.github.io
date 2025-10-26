@@ -17,6 +17,10 @@ highlighter: rouge
 permalink: /:categories/:title/
 timezone: UTC
 
+# Kramdown settings
+kramdown:
+  math_engine: null
+
 # Collections
 collections:
   articles:
