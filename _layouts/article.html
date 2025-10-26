@@ -49,6 +49,23 @@ layout: default
     </footer>
 </article>
 
+<script type="text/javascript">
+    // Fix double-escaped LaTeX before MathJax processes it
+    (function() {
+        var articleContent = document.querySelector('.article-content');
+        if (articleContent) {
+            var html = articleContent.innerHTML;
+            // Replace double backslashes with single backslashes in LaTeX regions
+            html = html.replace(/\$\$([^$]+)\$\$/g, function(match, content) {
+                return '$$' + content.replace(/\\\\/g, '\\') + '$$';
+            });
+            html = html.replace(/\$([^$]+)\$/g, function(match, content) {
+                return '$' + content.replace(/\\\\/g, '\\') + '$';
+            });
+            articleContent.innerHTML = html;
+        }
+    })();
+</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
