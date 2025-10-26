@@ -60,21 +60,29 @@ layout: default
             
             // Fix double-escaped backslashes in all LaTeX regions
             html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(match, content) {
-                return '$$' + content.replace(/\\\\/g, '\\').replace(/\\\\\\\\/g, '\\') + '$$';
+                content = content.replace(/\\\\/g, '\\').replace(/\\\\\\\\/g, '\\');
+                content = content.replace(/\\\\\\_/g, '_'); // Fix triple-escaped underscores
+                content = content.replace(/\\\\_/g, '_');   // Fix double-escaped underscores  
+                return '$$' + content + '$$';
             });
             html = html.replace(/\$([\s\S]*?)\$/g, function(match, content) {
-                return '$' + content.replace(/\\\\/g, '\\').replace(/\\\\\\\\/g, '\\') + '$';
+                content = content.replace(/\\\\/g, '\\').replace(/\\\\\\\\/g, '\\');
+                content = content.replace(/\\\\\\_/g, '_'); // Fix triple-escaped underscores
+                content = content.replace(/\\\\_/g, '_');   // Fix double-escaped underscores
+                return '$' + content + '$';
             });
             
-            // Fix underscores: convert <em>text</em> back to _text_ inside math
+            // Fix underscores: convert <em>text</em> back to _text_ AND remove \_ escaping inside math
             html = html.replace(/\$(.+?)\$/g, function(match, content) {
                 content = content.replace(/<em>([^<]+)<\/em>/g, '_$1_');
                 content = content.replace(/<\/?(em|strong|b|i)>/g, '');
+                content = content.replace(/\\_/g, '_'); // Remove underscore escaping
                 return '$' + content + '$';
             });
             html = html.replace(/\$\$(.+?)\$\$/g, function(match, content) {
                 content = content.replace(/<em>([^<]+)<\/em>/g, '_$1_');
                 content = content.replace(/<\/?(em|strong|b|i)>/g, '');
+                content = content.replace(/\\_/g, '_'); // Remove underscore escaping
                 return '$$' + content + '$$';
             });
             
