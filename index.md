@@ -126,9 +126,9 @@ title: Home
 
         <h3>Series</h3>
         <details>
-            <summary><a href="{{ '/articles/rl-tutorials/tut1' | relative_url }}">Miscellaneous Tutorials on Reinforcement Learning</a></summary>
+            <summary><a href="{{ '/articles/rl-tutorials/tut1' | relative_url }}">Reinforcement Learning Tutorials</a></summary>
             <div class="details-content">
-                <p>A collection of tutorials, in <a href="https://arxiv.org/abs/2504.05042" target="_blank">British academic parlance</a> that is, for  topics in reinforcement learning. We go into further mathematical depth than standard texts, such as <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf" target="_blank">Sutton's Introduction to Reinforcement Learning</a>, and as such expect a greater deal of mathematical maturity. I'd approximate this to be at the level of a 2nd-3rd year mathematics undergraduate. I try to write in a more conversational style, both to appease Socrates and to capture that tutorial feeling. I may record some seminars around this content if I find the time.</p> 
+                <p>A collection of tutorials, in <a href="https://en.wikipedia.org/wiki/Tutorial#Academia" target="_blank">British academic parlance</a> that is, for  topics in reinforcement learning. We go into further mathematical depth than standard texts, such as <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf" target="_blank">Sutton's Introduction to Reinforcement Learning</a>, and as such expect a greater deal of mathematical maturity. I'd approximate this to be at the level of a 2nd-3rd year mathematics undergraduate. I try to write in a more conversational style, both to appease Socrates and to capture that tutorial feeling. I may record some seminars around this content if I find the time.</p> 
                 <div class="series-parts">
                     <h4>Parts:</h4>
                     <ul>
