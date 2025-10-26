@@ -50,18 +50,20 @@ layout: default
 </article>
 
 <script type="text/javascript">
-    // Fix escaping issues in LaTeX before MathJax processes
+    // Fix Markdown emphasis being applied to underscores in LaTeX
     (function() {
         var content = document.querySelector('.article-content');
         if (content) {
             var html = content.innerHTML;
             
-            // Fix double-escaped backslashes and underscores in math regions
-            html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(m, math) {
-                return '$$' + math.replace(/\\\\\\\\/g, '\\').replace(/\\\\/g, '\\') + '$$';
+            // Convert <em> tags back to underscores in math regions
+            html = html.replace(/\$([^$]*?)\$/g, function(match, math) {
+                math = math.replace(/<em>([^<]+)<\/em>/g, '_$1_');
+                return '$' + math + '$';
             });
-            html = html.replace(/\$([\s\S]*?)\$/g, function(m, math) {
-                return '$' + math.replace(/\\\\\\\\/g, '\\').replace(/\\\\/g, '\\').replace(/\\_/g, '_') + '$';
+            html = html.replace(/\$\$([^$]*?)\$\$/g, function(match, math) {
+                math = math.replace(/<em>([^<]+)<\/em>/g, '_$1_');
+                return '$$' + math + '$$';
             });
             
             content.innerHTML = html;
@@ -75,5 +77,5 @@ layout: default
         processEscapes: true
       }
     });
-</script>
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
