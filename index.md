@@ -129,6 +129,17 @@ title: Home
             <summary>Reinforcement Learning Tutorials</summary>
             <div class="details-content">
                 <p>A collection of tutorials, in <a href="https://en.wikipedia.org/wiki/Tutorial#Academia" target="_blank">British academic parlance</a> that is, for  topics in reinforcement learning. We go into further mathematical depth than standard texts, such as <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf" target="_blank">Sutton's Introduction to Reinforcement Learning</a>, and as such expect a greater deal of mathematical maturity. I try to write in a more conversational style, both to appease Socrates and to capture that tutorial feeling, and I may record some seminars around this content if I find the time.</p> 
+
+                <p><strong>FAQ:</strong></p>
+
+                <p><strong>Q:</strong> What are your credentials? Why should I listen to you?</p>
+                <p><strong>A:</strong> Appeal to authority.</p>
+
+                <p><strong>Q:</strong> Why not read one of the many books on RL?</p>
+                <p><strong>A:</strong> Survivorship bias.</p>
+
+                <p><strong>Q:</strong> I've already been reading Sutton, why should I switch to your tutorials now?</p>
+                <p><strong>A:</strong> Sunk cost fallacy.</p>
                 <div class="series-parts">
                     <h4>Tutorials:</h4>
                     <ul>
