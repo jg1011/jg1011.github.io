@@ -104,7 +104,7 @@ title: Home
                         <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
                         <div class="library-links">
                             <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
-                            <a href="#" target="_blank">Documentation</a>
+                            <a href="https://jg1011.github.io/PyDynSys/" target="_blank">Docs</a>
                         </div>
                     </div>
                 </div>
