@@ -20,6 +20,28 @@ title: Home
         <img src="{{ '/assets/images/profile_photo.jpg' | relative_url }}" alt="Jacob Green" class="hero-photo">
     </section>
 
+    <!-- Libraries Section -->
+    <section id="libraries" class="section">
+        <h2 class="section-title">Libraries</h2>
+        
+        <details>
+            <summary>PyDynSys</summary>
+            <div class="details-content">
+                <div class="library-card">
+                    <img src="{{ '/assets/images/pydynsys.gif' | relative_url }}" alt="PyDynSys" class="library-image">
+                    <div class="library-info">
+                        <h3 class="library-title">PyDynSys (currently in alpha)</h3>
+                        <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
+                        <div class="library-links">
+                            <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
+                            <a href="https://jg1011.github.io/PyDynSys/" target="_blank">Docs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="section">
         <h2 class="section-title">Projects</h2>
@@ -83,28 +105,6 @@ title: Home
                         <p class="project-description">Classification of invasive fungi species from microscopic imaging, trained on the DeFungi dataset. Models include classical convolutional neural networks, bayesian classifiers, logistic regression classifiers and the more modern vision transformer. </p>
                         <div class="project-links">
                             <a href="https://github.com/jg1011/DeFungi-Classification" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </details>
-    </section>
-
-    <!-- Libraries Section -->
-    <section id="libraries" class="section">
-        <h2 class="section-title">Libraries</h2>
-        
-        <details>
-            <summary>PyDynSys</summary>
-            <div class="details-content">
-                <div class="library-card">
-                    <img src="{{ '/assets/images/pydynsys.gif' | relative_url }}" alt="PyDynSys" class="library-image">
-                    <div class="library-info">
-                        <h3 class="library-title">PyDynSys (currently in alpha)</h3>
-                        <p class="library-description">An object oriented library for the analysis of dynamical systems, designed for mathematically mature use-cases: Symbolic, functional and numerical dynamical system builders, trajectory computation with caching via scipy and plotting with matplotlib, support for both autonomous and non-autonomous systems, in-built n-pendulum and driven pendulum models with matplotlib simulations, symbolic phase space support with plotting utilities, in-built bifurification analysis utilities and more!</p>
-                        <div class="library-links">
-                            <a href="https://github.com/jg1011/PyDynSys" target="_blank">GitHub</a>
-                            <a href="https://jg1011.github.io/PyDynSys/" target="_blank">Docs</a>
                         </div>
                     </div>
                 </div>
