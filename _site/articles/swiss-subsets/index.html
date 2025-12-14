@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiss Subsets - Jacob Green</title>
+    <meta name="description" content="Mathematician, Software Developer, and Researcher">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- MathJax 3 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                processRefs: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            startup: {
+                ready: function () {
+                    MathJax.startup.defaultReady();
+                    console.log('MathJax is loaded and ready');
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Swiss Subsets | Jacob Green</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Swiss Subsets" />
+<meta name="author" content="Jacob Green" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Mathematician, Software Developer, and Researcher" />
+<meta property="og:description" content="Mathematician, Software Developer, and Researcher" />
+<link rel="canonical" href="http://localhost:4000/articles/swiss-subsets/" />
+<meta property="og:url" content="http://localhost:4000/articles/swiss-subsets/" />
+<meta property="og:site_name" content="Jacob Green" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Swiss Subsets" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Jacob Green"},"description":"Mathematician, Software Developer, and Researcher","headline":"Swiss Subsets","url":"http://localhost:4000/articles/swiss-subsets/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav">
+            <a href="/" class="nav-brand">Jacob Green</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#libraries">Libraries</a>
+                <a href="#articles">Articles</a>
+                <a href="#miscellaneous">Miscellaneous</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <article class="article">
+    <header class="article-header">
+        <h1 class="article-title">Swiss Subsets</h1>
+        
+        
+    </header>
+
+    <div class="article-content tex2jax_process">
+        
+<h1 id="swiss-subsets-of-n">Swiss Subsets of $[n]$</h1>
+
+<p>Recently—in a desperate bid to revitalise my problem-solving faculties—I’ve found myself working through the book <a href="https://rainymathboy.wordpress.com/wp-content/uploads/2011/01/102-combinatorial-problems.pdf">102 Combinatorial Problems From The Training Of The USA IMO Team</a>. Working through the introductory problems started off as a breeze; then my ego took a fatal hit on question 11…</p>
+
+<blockquote>
+  <p>Determine the number of ways to choose five numbers from the first eighteen positive integers such that any two chosen numbers differ by at least two.</p>
+</blockquote>
+
+<p>Simple right? As stated, it was even simple enough for my seven year old sister to take a stab at it. Being—I hope—more mathematically mature than the teenagers preparing for the IMO, I chose to restate this problem more generally as</p>
+
+<blockquote>
+  <p>Determine the number of $k$-subsets of $[n]$ containing no two consecutive integers.</p>
+</blockquote>
+
+<p>where $[n] := \{1, \dots, n\}$ denotes the first $n$ positive integers. Let $f(k, n)$ be the aforementioned quantity, and recall our primary goal is compute $f(5, 18)$. For brevity, we’ll call subsets with no two consecutive integers <em>$k$-funky</em>.</p>
+
+<p>Being a good mathematician, the reader is expected to attempt this problem themselves before continuing. Perhaps you’ll solve it quickly and think less of me. Perhaps you’ll also suffer through an ego death. Eitherway, go have a ponder; I’ll be seeing you shortly.</p>
+
+<h2 id="first-thoughts">First Thoughts</h2>
+
+<p>At first, nothing obvious jumps out; let’s get the ball rolling with some small values. It makes sense to try and construct the smallest—in the sense of having the smallest maximal element—funky subset first. It is quite obvious that this is the first $k$ odd-numbers, giving us our first result.</p>
+
+<p><strong>Proposition 1:</strong> For all $k \in \mathbb{N}$ we have $n &lt; 2k-1 \Rightarrow f(k, n) = 0$</p>
+
+<p>To prove this, we’ll invoke an old classic: the pigeonhole principle (sometimes called Dirichlet’s box principle).</p>
+
+<p><strong>Proof:</strong> Choose $k$-funky $A = \{a_1, \dots, a_k\} \subseteq [n]$ sequentially. Consider the following three cases:</p>
+
+<ul>
+  <li>If $1 = a \in A$ then for all $a^\prime \in A \setminus \{a\}$ we have $a^\prime \neq 2$</li>
+  <li>If $a \in A \cap \{2, 3, \dots, n-1\}$ then for all $a^\prime \in A \setminus \{a\}$ we have $a^\prime \not\in \{a \pm 1\}$</li>
+  <li>If $n = a \in A$ then for all $a^\prime \in A \setminus \{a\}$ we have $a^\prime \neq n$</li>
+</ul>
+
+<p>In any case, each selection $a_i$ reduces the available choices for a future selection by at least two, meaning to construct a $k$-funky subset we require</p>
+
+<div class="kdmath">$$
+n \geq 1 + (k-1) \times 2 = 2k - 1
+$$</div>
+
+<p>This completes the proof. $\quad \square$</p>
+
+<p>While a good start, this doesn’t actually help us count anything. Lets move onto $f(k, 2k-1)$. It’s reasonably obvious that this is just one, as $\{1, \dots, 2k-1\}$ is the only $k$-funky subset of $[2k-1]$. Indeed, an analogous argument proves this.</p>
+
+<p>No obvious argument to generalise yet, so onto $f(k, 2k)$. It is natural to postulate that our previously stated $k$-funky subset $\{1, \dots, 2k-1\}$ is $k$-funky here. After one internal “uhh” you should arrive at “obviously”. This gives us our first lemma.</p>
+
+<p><strong>Lemma 1:</strong> If $A$ is a $k$-funky subset of $[n]$ then it is also a $k$-funky subset of $[m]$ for all $m \geq n$.</p>
+
+<p><strong>Proof:</strong> Ask a toddler in the street. $\quad \square$</p>
+
+<p>So, we counted $k$-funky subsets of $[2k-1]$ by lemma 1, and by proposition 1 we know there are no $k$-funky subsets of $[m]$ for $m &lt; 2k - 1$, so we deduce that any remaining $k$-funky subsets must contain $2k$. If you think about it for a moment, there’s a nice way to count these. Start with $A = \{1, 3, 5, \dots, 2k-1\}$ and choose an element $2m-1 \in A$. If we add one to $2m-1$ and all the greater elements of $A$, we arrive at the $k$-groovy subset $A^\prime = \{1, 3, \dots, 2m-3, 2m, 2m+2, \dots,2k-2, 2k\} $. Given $\lvert A \rvert = k$ we thus count $k$ new $k$-groovy subsets. Is this all of them? It is, and can be shown with a similar proof (exercise!) to that of proposition 1.</p>
+
+<p>It turns out a very similar idea can be used to swiftly compute $f(n, k)$ (exercise: find it). After an amount of time I’m not willing to disclose, I gave up trying to find it and looked elsewhere.</p>
+
+<h2 id="a-recursion">A Recursion</h2>
+
+<p>Fixing $k$ and working inductively on $n$ didn’t work out too well for me, so I decided to free myself from these fixed-$k$ shackles. We know by lemma 1 that $k$-funky subsets of $[n-1]$ are $k$-groovy subsets of $[n]$. Can we say something about the $k-1$-funky subsets of $[m], m &lt; n$ and the $k$-groovy subsets of $[n]$? Well, if we fix a $k-1$-funky subset of $[n-2]$, we can just append $\{n\}$ to it to get a $k$-groovy subset of $[n]$. As the $k$-funky subsets of $[n-1]$ are distinct from these newly obtained $k$-groovy subsets of $[n]$ (the former subsets do not contain $n$, the latter do contain $n$), we see that</p>
+
+<div class="kdmath">$$
+f(n, k) \geq f(n-1, k) + f(n-2, k-1)
+$$</div>
+
+<p>for all $n \geq 2k, k \geq 2$ (as we suppose a $k$-groovy subset of $[n-1]$ exists and we only define $k$-funkiness for $k \geq 1$). Does equality hold? It does!</p>
+
+<p><strong>Lemma 2:</strong> For all $n \geq 2k, k \geq 2$ we have $f(n, k) = (n-1, k) + f(n-2, k-1)$</p>
+
+<p><strong>Proof:</strong> We’ve already seen $\text{LHS} \geq \text{RHS}$, so it suffices to prove $\text{LHS} \leq \text{RHS}$. To that end, it suffices to decompose each $k$-funky subset of $[n]$ into either a $k$-funky subset of $[n-1]$ or a $k-1$-funky subsets of $[n-2]$. Let $A = \{a_1, \dots, a_k\} \subset [n]$ be $k$-funky and WLOG take $a_1 &lt; \dots &lt; a_k$. If $a_k &lt; n$, then $A$ is clearly a $k$-funky subset of $[n-1]$. If $a_k = n$, then consider $A^\prime = A \setminus \{ a_k \}$. It is clear $A^\prime$ is a $k-1$-funky subset of $[n]$, and as $a_{k-1} \leq n-2$ we further deduce it is a $k-1$-funky subset of $[n-2]$ which completes the proof. $\quad \square$</p>
+
+<p>Lovely. We have a recursion. If we solve it we win. Well it turns out winning isn’t a simple affair. I wasted another undisclosed period of time expanding the RHS iteratively, looking for a nice computational lemma. This—assuming I’m not an idiot—won’t get you anywhere. Let’s instead look at some small values. Fix $k=1$. It is obvious every subset of $[n]$ is $1$-groovy, so $f(n, k) = n$. What about $k=2$? In this case, we can just compute</p>
+
+<div class="kdmath">$$
+f(n, 2) = \# \, [n] \setminus \\{\\{i, i+1\\} : i \in [n-1]\\} = \binom{n}{2} - (n-1) = \binom{n-1}{2}
+$$</div>
+
+<p>There is a natural conjecture to try (exercise: state it), but I thought to give $k=3$ an attempt first. In this case, it’s not so easy to explicitly state the sets, so we’ll invoke lemma 2. Fix $n \geq 6$, then</p>
+
+<div class="kdmath">$$
+f(n, 3) = f(n-1, 3) + f(n-2, 2) = f(n-1, 3) + \binom{n-1}{2}
+$$</div>
+
+<p>What a delight, an arithmetic progression! We immediately solve in full generality to obtain</p>
+
+<div class="kdmath">$$
+f(n, 3) = f(3, 5) + \sum_{\ell = 3}^{n-3} \binom{n-\ell}{2} = \sum_{\ell = 2}^{n-3} \binom{\ell}{2}
+$$</div>
+
+<p>where the latter inequality follows from $f(3, 5) = 1$ and reindexing the summation. Now, for those deeply embedded in olympiad circles, there’s a nice identity that one-shots this summation. For the rest of us, we’ll need some work. Recall the classical sum of squares formula</p>
+
+<div class="kdmath">$$
+\sum_{k=1}^n k^2 = \frac{1}{6}n(n+1)(2n+1)
+$$</div>
+
+<p>Whether this is more well known than this afforementioned identity I’m not sure, but for I had this in readily accessible memory, and not the other identity, so we’ll use it. It is a fun exercise to try to prove this without induction, see hint 1. Using $\binom{\ell}{2} = \frac{1}{2}\ell(\ell + 1)$ with our sum of squares formula, compute</p>
+
+<div class="kdmath">$$
+\sum_{\ell = 2}^{n-3} \binom{\ell}{2} = \frac{1}{2}\left[\frac{1}{6}(n-3)(n-2)(2n-5) - 1 - \frac{1}{2} (n-3)(n-2) + 1\right] = \frac{1}{6} (n-4)(n-3)(n-2) = \binom{n-2}{3}
+$$</div>
+
+<p>We now have clear grounds for a conjecture. Notice that each time we increment $k$ by $1$, we subtract $1$ from the top component of the binomial coefficient, and add one to the bottom component. Hence, by engineer’s induction:</p>
+
+<div class="kdmath">$$
+f(n, k) = \binom{n-k+1}{k}
+$$</div>
+
+<p>To prove this, we’ll use mathematicians induction.</p>
+
+<p><strong>Proposition 2:</strong> For all $k \geq 1, n \geq 2k-1$ we have $f(n, k) = \binom{n-k+1}{k}$</p>
+
+<p><strong>Proof:</strong> $k \geq 1$. We’ve seen a base case, so suppose that the proposition is true for some fixed $k \geq 1$ and all $n \geq 2k-1$. Using lemma 2 we see that</p>
+
+<div class="kdmath">$$
+f(n, k+1) = f(n-1, k+1) + f(n-2, k) = f(n-1, k+1) + \binom{n-k-1}{k}
+$$</div>
+
+<p>for each $n \geq 2k + 1$. It is easily seen that</p>
+
+<div class="kdmath">$$
+f(n, k+1) = \sum_{\ell = 0}^{n-2k - 1} \binom{k + \ell}{k}
+$$</div>
+
+<p>Hence, by the <a href="https://en.wikipedia.org/wiki/Hockey-stick_identity">hockeystick identity</a></p>
+
+<div class="kdmath">$$
+f(n, k+1) = \binom{n-k}{k+1}
+$$</div>
+
+<p>and the proposition is proven. $\quad \square$</p>
+
+<p>So what is this magical hockeystick identity? I admit I’d forgotten about it at the time of solving, left to rederive it. The identity states that</p>
+
+<div class="kdmath">$$
+\sum_{\ell = k}^n \binom{\ell}{n} = \binom{n+1}{k+1}
+$$</div>
+
+<p>It derives it’s name from the fact that, when drawn on Pascal’s triangle, it looks like a hockeystick. There’s a boring proof with induction, but let’s assume for the moment we’ve never seen identity. How can we compute this sum?</p>
+
+<p>There’s a nice algebraic way using the fact that</p>
+
+<div class="kdmath">$$
+\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+$$</div>
+
+<p>Note that this identity corresponds with the usual construction of Pascal’s triangle.</p>
+
+<p><strong>Proof of the Hockeystick Identity</strong>. Observe</p>
+
+<div class="kdmath">$$
+\sum_{\ell = k}^n \binom{\ell}{k} = \sum_{\ell=k}^n \left[\binom{\ell+1}{k+1} - \binom{\ell}{k+1}\right] = \binom{n+1}{k+1}
+$$</div>
+
+<p>where the final equality follows from the telescoping nature of the summation. $\quad \square$</p>
+
+<p>There’s a nice combinatorial proof (exercise!) as well, but this doesn’t arise as naturally.</p>
+
+<h2 id="a-bijection">A Bijection</h2>
+
+<p>So, with all that work, we’ve found an answer; being a good combinator you won’t be happy. Where’s the bijection? Well, since we know the number of ways to count $k$-funky subsets of $[n]$ is the number of $k$-subsets of $[n-k+1]$ we have a good starting point: we’ll try to biject $k$-funky subsets of $[n]$ with subsets $[n-k+1]$.</p>
+
+<p>Let $\mathcal{X}$ be the set of all $k$-funky subsets of $[n]$ and $\mathcal{Y} = \mathcal{P}([n-k+1])$ the set of subsets of $[n-k+1]$. We can map $\mathcal{X} \to \mathcal{Y},\,  \{a_1, \dots, a_k\} \mapsto \{b_1, \dots, b_k\}$ by taking $b_i := a_i - (i-1)$ and WLOG taking $a_1 &lt; \dots &lt; a_k$. To see how we arrive at this, we just make $a_k$ “small enough”, and then try preserve the uniqueness of elements. If this map has an inverse we win. Indeed it does, just map $\mathcal{Y} \to \mathcal{X}, \, \{b_1, \dots, b_k\} \mapsto \{a_1, \dots, a_k\}$ where $a_i := b_i + (i-1)$ and WLOG $b_1 &lt; \dots &lt; b_k$. After a brief moment, it should become clear that $\{a_1, \dots, a_k\}$ is a $k$-funky subset of $[n]$.</p>
+
+<p>This idea corresponds with the official solution:</p>
+
+<blockquote>
+  <p>Let $a_1 &lt; a_2 &lt; a_3 &lt; a_4 &lt; a_5$ be the first five chosen numbers. Consider the numbers $(b_1, b_2, b_3, b_4, b_5) = (a_1, a_2 - 1, a_3 - 2, a_4 - 3, a_5 - 4)$. Then $b_1, b_2, b_3, b_4, b_5$ are five distinct numbers from the first fourteen positive integers. Conversely, from any five distinct numbers $b_1 &lt; b_2 &lt; b_3 &lt; b_4 &lt; b_5$ we can reconstuct $(a_1, a_2, a_3, a_4, a_5) = (b_1, b_2 + 1, b_3 + 2, b_4 + 3, b_5 + 4)$ to obtain five numbers satisfying the conditions of the problem. Ths we found a one-to-one mapping between the set of five numbers satsfying the given conditions and the set of five distinct numbers from the first fourteen positive integers. Therefore the answer is $\binom{14}{5} = 2002$.</p>
+</blockquote>
+
+<p>Insultingly simple, as combinatorial proofs often are.</p>
+
+<h2 id="an-extension">An Extension</h2>
+
+<p>Consider the following extension.</p>
+
+<blockquote>
+  <p>Call a subset $A$ of $[n]$ $m$-swiss if the distance between any two distinct elements in $A$ is greater than $m$. How many $m$-swiss subsets of $[n]$ are there of size $k$?</p>
+</blockquote>
+
+<p>Note we’ve already counted the $1$-swiss subsets of size $k$. This is pretty easy (some would say trivial) given you’ve followed along this far. Verify you’ve followed by solving this. A hint is given below (2).</p>
+
+<h2 id="concluding-remarks">Concluding Remarks</h2>
+
+<p>I feel that anyone learning to solve problems in combinatorics may feel like they need a certain amount of esoteric wisdom that they do not, and can not, possess. I hope this brief article (n.b. blog post? Whatever this counts as…) helps illustrate the non-linearity of the problem-solving process.</p>
+
+<p>Directly coming up with that bijection is no easy feat. In hindsight, it feels like I should’ve seen it around the time I was doing my “add one to all remaining elements” count for $f(2k, k)$ at the end of the first section. Those who’ve solved many similar problems may naturally try to find maps that turn $k$-funky subsets into known (in the sense of being readily countable) subsets. In that case, this map should arise pretty quickly, and I guess I’m an idiot for not finding it (or, at the very least, trying harder to find it).</p>
+
+<p>However you go about a problem, keep going about more and the elegant solutions will fall from the sky soon enough. I won’t be giving up on bijections so quickly in future. Eitherway, always remember: the only embarrassing page of mathematics is an empty one.</p>
+
+<h2 id="hints">Hints</h2>
+
+<ol>
+  <li>
+    <p>I see comets, stars; with enough power, I observe all: what am I?</p>
+  </li>
+  <li>
+    <p>Can we jump straight to a bijection?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<hr />
+
+<p><a href="/expositions/combi/swiss_subsets.md" target="_blank">View raw Markdown</a></p>
+
+    </div>
+
+    <script>
+        // Force re-render of MathJax when content is loaded
+        if (window.MathJax) {
+            window.MathJax.typesetPromise && window.MathJax.typesetPromise();
+        }
+    </script>
+
+    
+
+    <footer class="article-footer">
+        <a href="/" class="back-home">← Back to Home</a>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Jacob Green</p>
+            <div class="footer-links">
+                <a href="mailto:jacobgreen1011@gmail.com">Email</a>
+                <a href="https://github.com/jg1011" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/jacob-green-mathematics/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

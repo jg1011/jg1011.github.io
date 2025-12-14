@@ -34,7 +34,7 @@ defaults:
       path: ""
       type: "articles"
     values:
-      layout: "article"
+      layout: "md_article"
   - scope:
       path: ""
       type: "pages"
@@ -43,7 +43,7 @@ defaults:
 
 # Include files
 include:
-  - articles
+  - expositions
 
 # Exclude files
 exclude:

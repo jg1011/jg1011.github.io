@@ -25,6 +25,13 @@ layout: default
         {{ content }}
     </div>
 
+    <script>
+        // Force re-render of MathJax when content is loaded
+        if (window.MathJax) {
+            window.MathJax.typesetPromise && window.MathJax.typesetPromise();
+        }
+    </script>
+
     {% if page.series %}
     <nav class="article-nav">
         <div class="nav-prev">
@@ -48,37 +55,3 @@ layout: default
         <a href="{{ '/' | relative_url }}" class="back-home">← Back to Home</a>
     </footer>
 </article>
-
-<script type="text/javascript">
-    // Fix Markdown emphasis being applied to underscores in LaTeX
-        // Doesn't work all the time, but sometimes works? Very hacky and confusing.
-    (function() {
-        var content = document.querySelector('.article-content');
-        if (content) {
-            var html = content.innerHTML;
-            
-            // Convert <em> tags back to underscores AND unescape backslash-underscores in math regions
-            html = html.replace(/\$([^$]*?)\$/g, function(match, math) {
-                math = math.replace(/<em>([^<]+)<\/em>/g, '_$1_');
-                math = math.replace(/\\_/g, '_');  // Unescape \_ to _
-                return '$' + math + '$';
-            });
-            html = html.replace(/\$\$([^$]*?)\$\$/g, function(match, math) {
-                math = math.replace(/<em>([^<]+)<\/em>/g, '_$1_');
-                math = math.replace(/\\_/g, '_');  // Unescape \_ to _
-                return '$$' + math + '$$';
-            });
-            
-            content.innerHTML = html;
-        }
-    })();
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        processEscapes: true
-      }
-    });
-    </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

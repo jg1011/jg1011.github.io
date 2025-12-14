@@ -1,3 +1,6 @@
-[submodule "articles"]
-	path = articles
-	url = https://github.com/jg1011/articles.git
+[submodule "expositions"]
+	path = expositions
+	url = https://github.com/jg1011/expositions/
+[submodule "british-mathematical-olympiad-solutions"]
+	path = british-mathematical-olympiad-solutions
+	url = https://github.com/jg1011/british-mathematical-olympiad-solutions

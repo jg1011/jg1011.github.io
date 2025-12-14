@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, amsfonts, amsthm}
+\usepackage{hyperref}
+\usepackage[left=2cm, right=2cm]{geometry}
+\usepackage{natbib}
+\usepackage{tikz}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+
+\setlength{\parindent}{0cm}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\title{Tutorial 2: Dynamic Programming}
+\author{Jacob Green}
+\date{}
+
+\begin{document} 
+
+\begin{titlepage}
+    \maketitle
+    \begin{abstract}
+    ABSTRACT HERE
+\end{abstract}
+\end{titlepage}
+
+\newpage
+
+\section{Bellman's Equation}
+
+Recall the following definition from tutorial 1. 
+
+\begin{definition}{(discrete MDP)}
+    A discrete Markov decision process is a tuple $(\mathcal{S}, \mathcal{A}, \mathbb{T}, \mathbb{T}_0, R, \gamma, N)$ where
+
+    \begin{itemize}
+        \item $\mathcal{S}$ and $\mathcal{A}$ are sets, named the state and action spaces respectively. 
+        \item $\mathbb{T}(s^\prime | a, s): \mathcal{S} \times \mathcal{A} \times \mathcal{S} \to [0,1]$ is a conditional distribution, 
+        named the transition distribution, describing the dynamics of state-action updates. 
+        \item $\mathbb{T}(s): \mathcal{S} \to [0,1]$ is a distribution, named initial state distribution, describing the 
+        dynamics of initial state selection. 
+        \item  $R(s^\prime | a, s): \mathcal{S} \times \mathcal{A} \times \mathcal{S} \to \mathbb{R}$ is a map defining 
+        the reward signalled by observing state $s^\prime$ from the state-action pair ($s, a$)
+        \item $\gamma \in [0,1)$ denotes the discount rate
+        \item $N \in \mathbb{N} \cup \{+\infty\}$ denotes the, possibly infinite, time horizon. 
+    \end{itemize}
+
+    If $N < +\infty$ we will call our discrete Markov decision process finite.
+\end{definition}
+
+Let $(\mathcal{S}, \mathcal{A}, \mathbb{T}, \mathbb{T}_0, R, \gamma, N)$ be a discrete MDP with $\mathcal{S}$ and $\mathcal{A}$ 
+\textit{discrete}\footnote{i.e. $\mathcal{S}$ and $\mathcal{A}$ finite or countable}. We defined a \textit{policy} to be a 
+collection of conditional distributions $\pi(a | s): \mathcal{A} \times \mathcal{S} \to [0,1]$, an episode to be a tuple of 
+the form 
+$$\tau = (s_0, a_0, s_1, r_0, a_1, \dots, s_{N-1}, r_{N-2}, a_{N-1}, s_N, r_{N-1})$$
+where $r_t := R(s_{t+1} | a_{t}, s_{t})$ and $a_t \sim \pi(\cdot | s_t)$, and the \textit{expected discounted cumulative reward} 
+for the policy $\pi$ to be 
+$$
+J(\pi) := \mathbb{E}_{\tau \sim \mathbb{T}(\cdot \, ; \, \pi)}\left[\sum_{t = 0}^{N-1} \gamma^t r_t\right] 
+$$
+where $\mathbb{T}(\cdot \, ; \, \pi): \mathcal{T} \to [0,1]$ denotes the episode distribution. The goal of reinforcement 
+learning is to find 
+$$
+\pi^\star \argmax_{\pi} J(\pi)
+$$
+
+In this tutorial, we'll be exploring learning via \textit{dynamic programming}, an umbella term for algorithms that can compute 
+the optimal policy for a \textit{fully specified} MDP. By fully specified, we mean that our MDP perfectly models our game. In practice, 
+to perfectly specify a game is either (A) impossible (B) computationally infeasible (e.g. large $\mathcal{S}$ or $\mathcal{A}$). 
+That said, DP (dynamic programming) makes for an ideal theoretical basis. All the more practically used algorithms, e.g. 
+Monte Carlo simulation\footnote{
+    We'll cover this next tutorial
+}, used to find optimal policies in MDPs can be seen as approximations of their dynamic cousins. \\
+
+We make the following assumption, for reasons that will become clear shortly. 
+
+\begin{assumption}[null terminal rewards]
+    If there exists $T$ such that $s_T$ is a terminal state\footnote{
+        That is, a state $s$ where our game is considered complete. E.G. in chess, this would be a checkmate position. 
+        The key idea is that we need not consider our actions beyond such a point.
+    }, then for all $t > T$ we have $r_t = 0$. 
+\end{assumption}
+
+
+
+We begin by exploring two new quantites: the \textit{state-value function} and the \textit{action-value function}. 
+These are defined, respectively, by 
+$$
+V^\pi(s) := \mathbb{E}_{\tau \sim \mathbb{T}(\cdot \, ; \, \pi)}\left[\sum_{k=0}^{\infty}\gamma^t r_{t+k+1} \; {\Big |} \; s_t = s\right]
+$$
+$$
+Q^\pi(s, a) := \mathbb{E}_{\tau \sim \mathbb{T}(\cdot \, ; \, \pi)}\left[\sum_{k=0}^{\infty} \gamma^t r_{t+k+1} \; {\Big |} \; s_t = s, a_t = a\right]
+$$
+Note that these are just our expected discounted cumulative rewards conditioned on the initial state, and initial state-action 
+pair, at time $t$ respectively. By the Markov property and assumption 1, $V^\pi(\cdot)$ and $Q^\pi(\cdot, \cdot)$ do not 
+depend on $t$, hence the notational abscence. \\
+
+Let $V^\star(\cdot) := V^{\pi^\star}(\cdot)$ and $Q^\star(\cdot, \cdot) := Q^{\pi^\star}(\cdot, \cdot)$. It is clear
+$$
+V^\star(s) = \max_{\pi}V^\pi(s) \quad \text{and} \quad Q^\star(s, a) = \max_{\pi}Q^\pi(s, a)
+$$
+
+
+
+\end{document}

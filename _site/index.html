@@ -1,9 +1,74 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Jacob Green</title>
+    <meta name="description" content="Mathematician, Software Developer, and Researcher">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- MathJax 3 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                processRefs: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            startup: {
+                ready: function () {
+                    MathJax.startup.defaultReady();
+                    console.log('MathJax is loaded and ready');
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Home | Jacob Green</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Home" />
+<meta name="author" content="Jacob Green" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Mathematician, Software Developer, and Researcher" />
+<meta property="og:description" content="Mathematician, Software Developer, and Researcher" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Jacob Green" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Home" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Jacob Green"},"description":"Mathematician, Software Developer, and Researcher","headline":"Home","name":"Jacob Green","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
 
-<div class="container">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav">
+            <a href="/" class="nav-brand">Jacob Green</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#open-source-contributions">Open Source Contributions</a>
+                <a href="#expositions">Expositions</a>
+                <a href="#thesis">Thesis</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -17,13 +82,13 @@ title: Home
                 <p>
                 Quite fond of combinatorics, dynamical systems, and reinforcement learning&mdash;usually writing the code in Python or Rust. I also dabble in some history, though I can't profess any competancy here. 
 
-                <br> <br> 
+                <br /> <br /> 
 
                 For a copy of my CV, please email me. I’m always keen to hear about interesting problems and, when warranted, happy to discuss them over a call.
                 </p>
             </div>
         </div>
-        <img src="{{ '/assets/images/profile_photo.jpg' | relative_url }}" alt="Jacob Green" class="hero-photo">
+        <img src="/assets/images/profile_photo.jpg" alt="Jacob Green" class="hero-photo" />
     </section>
 
     <!-- Open Source Contributions Section -->
@@ -40,7 +105,7 @@ title: Home
                             A JAX-based python library providing the identification of attractors, along with their basins of attraction, for dynamical systems $\dot{\boldsymbol{x}} = \boldsymbol{f}(\boldsymbol{x})$ via 
                             <a href="https://arxiv.org/abs/2110.04358">recent developments by Datseris and Wagemakers</a>. 
                             
-                            <br> <br>
+                            <br /> <br />
 
                             NOTE: Currently unreleased. Should have v0.1.0 up in the next couple of weeks just finishing a few things on my end. 
                         </p>
@@ -57,18 +122,18 @@ title: Home
             <summary>British Mathematical Olympiad Solution Compendium</summary>
             <div class="details-content">
                 <div class="project-card">
-                    <img src="{{ '/assets/images/bmo-solution-compendium.gif' | relative_url }}" alt="British Mathematical Olympiad Solution Compendium" class="project-image">
+                    <img src="/assets/images/bmo-solution-compendium.gif" alt="British Mathematical Olympiad Solution Compendium" class="project-image" />
                     <div class="project-info">
                         <h3 class="project-title">British Mathematical Olympiad Solution Compendium</h3>
                         <p class="project-description">An assortment of solutions to older British Mathematical Olympiad questions I typed up some years ago. Geoff Smith told me to stop because it would hurt his book sales, and by a questionable induction the UK Maths Trust, so I obliged. 
                         
-                        <br> <br> 
+                        <br /> <br /> 
 
                         I'll note I skipped all the geometry questions. Olympiad geometry, unless of a combinatorial flavour, tends to be extremely boring to me. There is also a "skill issue" element, left to be quantified by the reader. 
                         
                         </p>
                         <div class="project-links">
-                            <a href="{{ 'british-mathematical-olympiad-solutions\solutions\solution-bank.pdf' | relative_url }}" target="_blank">Download PDF</a>
+                            <a href="/british-mathematical-olympiad-solutions%5Csolutions%5Csolution-bank.pdf" target="_blank">Download PDF</a>
                             <a href="https://github.com/jg1011/british-mathematical-olympiad-solutions" target="_blank">GitHub</a>
                         </div>
                     </div>
@@ -91,7 +156,7 @@ title: Home
             <div class="details-content">
                 <p>We go into further mathematical depth than standard texts, such as <a href="https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf" target="_blank">Sutton's Introduction to Reinforcement Learning</a>, and as such expect a greater deal of mathematical maturity. I try to write in a more conversational style, both to appease Socrates and to capture that tutorial feeling. I may record some seminars around this content if I find the time.
                 
-                <br> <br> 
+                <br /> <br /> 
 
                 Currently writing tutorial 2: On dynamic programming. This covers the dynamic programming formulation of RL, 
                 Bellman's equation, and the relevant ties with the Banach Fixed Point theorem. 
@@ -111,7 +176,7 @@ title: Home
                 <div class="series-parts">
                     <h4>Tutorials:</h4>
                     <ul>
-                        <li><a href="{{ '/expositions/rl/tut1/tut1.pdf' | relative_url }}" target="_blank">Tutorial 1: What actually is reinforcement learning? (pdf)</a></li>
+                        <li><a href="/expositions/rl/tut1/tut1.pdf" target="_blank">Tutorial 1: What actually is reinforcement learning? (pdf)</a></li>
                     </ul>
                 </div>
             </div>
@@ -123,15 +188,15 @@ title: Home
             <summary>Swiss Subsets</summary>
             <div class="details-content">
                 <div class="project-card">
-                    <img src="{{ '/assets/images/swiss_subsets.png' | relative_url }}" alt="Swiss Subsets" class="project-image">
+                    <img src="/assets/images/swiss_subsets.png" alt="Swiss Subsets" class="project-image" />
                     <div class="project-info">
                         <h3 class="project-title">Swiss Subsets</h3>
                         <p class="project-description">Illustrating the non-linear problem solving process with a cute problem 
                         from <a href="https://rainymathboy.wordpress.com/wp-content/uploads/2011/01/102-combinatorial-problems.pdf"> 102 Combinatorial Problems From The Training Of The USA IMO Team. </a>
                         </p>
                         <div class="project-links">
-                            <a href="{{ '/articles/swiss-subsets/' | relative_url }}">Read</a>
-                            <a href="{{ '/expositions/combi/swiss_subsets.md' | relative_url }}" target="_blank">Raw</a>
+                            <a href="/articles/swiss-subsets/">Read</a>
+                            <a href="/expositions/combi/swiss_subsets.md" target="_blank">Raw</a>
                         </div>
                     </div>
                 </div>
@@ -147,22 +212,22 @@ title: Home
             <summary>Masters</summary>
             <div class="details-content">
                 <div class="project-card">
-                    <img src="{{ '/assets/images/masters_thesis.png' | relative_url }}" alt="Masters Thesis" class="project-image">
+                    <img src="/assets/images/masters_thesis.png" alt="Masters Thesis" class="project-image" />
                     <div class="project-info">
                         <h3 class="project-title">Masters Thesis</h3>
                         <p class="project-description">Mirroring the work of <a href="https://arxiv.org/abs/2312.10026" target="_blank">Campos, Jenssen, Michelen and Sahasrabudhe</a>, we exhibit the existence of a sphere packing density $\Omega(2^d d \log d)$ in $\mathbb{R}^d$. We build upon their work in three key ways: (1) Providing explicit bounds for large fixed $d$ (2) Generalising arguments by considering packings in dilations of a convex body. 
                         
-                        <br> <br> 
+                        <br /> <br /> 
 
                         It is worth noting I had these ideas independently, leading to novel existence proofs of a packings densities $\Omega(2^d)$ and $\Omega(2^d d)$ in $\mathbb{R}^d$. As I later found out, the underlying idea (using independent sets and the AKS bound) is akin to that of <a href="https://arxiv.org/abs/math/0402132">Krivelevich, Litsyn and Vardy</a>, though the random geometric graph formulation was independent&mdash;inspired by the work of my advisor Mathew Penrose. My advisor compared this thesis with Captain Scott's last march. I'm inclined to agree.
                         
-                        <br> <br> 
+                        <br /> <br /> 
 
                         Mere months later <a href="https://arxiv.org/abs/2504.05042" target="_blank">Klartag</a> exhibited packings of density $\Omega(2^d d^2)$. Well done Klartag! 
 
                         </p>
                         <div class="project-links">
-                            <a href="{{ '/assets/pdfs/thesis.pdf' | relative_url }}" target="_blank">Download PDF</a>
+                            <a href="/assets/pdfs/thesis.pdf" target="_blank">Download PDF</a>
                         </div>
                     </div>
                 </div>
@@ -170,3 +235,18 @@ title: Home
         </details>
     </section>
 </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Jacob Green</p>
+            <div class="footer-links">
+                <a href="mailto:jacobgreen1011@gmail.com">Email</a>
+                <a href="https://github.com/jg1011" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/jacob-green-mathematics/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

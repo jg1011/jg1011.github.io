@@ -1,32 +1,17 @@
-# Jacob Green's Person Site
+# Jacob Green's Personal Site
 
-## Features
+I'd advise against reading this code, along with the commit history, if you value your sanity. Some vibecoding gone wrong followed by ill-informed human fixes, leading up to this unholy amalgamation of ideas. I know how to maintain it, and I vaguely know what's going on, so until that changes... 
 
-- **Minimal Design**: Clean, modern minimalist aesthetic with no JavaScript dependencies (except MathJax for LaTeX)
-- **Responsive Layout**: Works on desktop, tablet, and mobile devices
-- **Markdown Articles**: Full markdown support with LaTeX rendering via MathJax 3
-- **Expandable Sections**: CSS-only expandable project and library summaries
-- **GitHub Pages Ready**: Configured for automatic deployment via GitHub Pages
-- **External Articles**: Support for articles hosted in separate repositories via Git submodules
+## Scripts 
 
-## Site Structure
+Render markdown ready for Jekyll via double escaping certain chars (e.g. $\{\}$) via 
 
 ```
-├── _config.yml              # Jekyll configuration
-├── _layouts/
-│   ├── default.html         # Base layout with MathJax
-│   └── article.html         # Article-specific layout with MathJax
-├── assets/
-│   ├── css/
-│   │   └── main.css         # Styles and responsive design
-│   └── images/              # Project images and profile photo
-├── articles/                # Git submodule → external articles repo
-│   ├── standalone/          # Standalone articles
-│   └── series/              # Multi-part article series
-├── index.md                 # Contents, as per Jekyll convention
-└── README.md                
+RenderForJekyll.ps1 -InputPath "[RELATIVE_FILE_LOCATION]" -OutputDir "_includes\rendered"
 ```
 
-## License
+Make sure `articles/article_name/index.md` header then uses `{% include rendered/article_name_escaped.md %}`. for apt rendering. See e.g. `article/swiss_subsets` to get the idea. `index.md` ref must point to `articles/article_name`.   
 
-This website is open source and available under the MIT License.
+## Cards
+
+Just make everything a project card, they work. 
