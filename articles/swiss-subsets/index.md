@@ -3,11 +3,7 @@ layout: md_article
 title: Swiss Subsets
 ---
 
-{% capture article_content %}
-{% include rendered/swiss_subsets_escaped.md %}
-{% endcapture %}
-
-{{ article_content | markdownify }}
+{% include rendered/swiss_subsets.html %}
 
 <br>
 <hr>
